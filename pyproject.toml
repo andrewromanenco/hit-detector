@@ -1,0 +1,33 @@
+[project]
+name = "hit-detector"
+version = "0.1.0"
+description = "Hit detection on pattern boards for sporting clays"
+authors = [
+    {name = "Andrew Romanenco",email = "andrew@romanenco.com"}
+]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/andrewromanenco/hit-detector"
+repository = "https://github.com/andrewromanenco/hit-detector"
+documentation = "https://github.com/andrewromanenco/hit-detector"
+requires-python = ">=3.9"
+dependencies = [
+    "opencv-python (>=4.11.0.86,<5.0.0.0)",
+    "torch (>=2.7.0,<3.0.0)",
+    "torchvision (>=0.22.0,<0.23.0)",
+    "tqdm (>=4.67.1,<5.0.0)",
+    "scikit-learn (>=1.6.1,<2.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "hitdetector", from = "src"}]
+
+[tool.poetry.scripts]
+marker = "hitdetector.marker:main"
+extract-patches = "hitdetector.extract_patches:main"
+train = "hitdetector.train:main"
+inference = "hitdetector.inference:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
